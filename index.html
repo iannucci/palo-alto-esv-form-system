@@ -30,7 +30,13 @@
 				"pingURL": "/ping-11",
 				"saveURL": "/message-11"
 			};
-		var integrationMessage = {};
+		var integrationMessage = {
+			"MsgNo": "",
+			"OpCall": "",
+			"OpName": "",
+			"OpDate": "",
+			"OpTime": ""
+		};
 		// Local storage only allows strings
 		localStorage.setItem("integrationEnvironment", JSON.stringify(integrationEnvironment));
 		localStorage.setItem("integrationMessage", JSON.stringify(integrationMessage));
