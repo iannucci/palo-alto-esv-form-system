@@ -1,0 +1,160 @@
+/* Copyright 2014 Keith Amidon
+   Copyright 2014 Peter Amidon
+
+   Licensed under the Apache License, Version 2.0 (the "License");
+   you may not use this file except in compliance with the License.
+   You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+   Unless required by applicable law or agreed to in writing, software
+   distributed under the License is distributed on an "AS IS" BASIS,
+   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   See the License for the specific language governing permissions and
+   limitations under the License. */
+
+#loading {
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    z-index:9998;
+    background-color:#eeeeee;
+    visibility: visible;
+    transition: visibility 0s 0.5s,opacity 0.5s;
+    -moz-transition: visibility 0s 0.5s,opacity 0.5s;
+    -webkit-transition: visibility 0s 0.5s,opacity 0.5s;
+    -o-transition: visibility 0s 0.5s,opacity 0.5s;
+    -ms-transition: visibility 0s 0.5s,opacity 0.5s;
+}
+
+#loading > div {
+    color: #aaaaaa;
+    font-size: xx-large;
+    margin-left: 4px;
+    opacity: 0;
+    animation: fadein 1s 1s 1 forwards;
+    -moz-animation: fadein 1s 1s 1 forwards;
+    -webkit-animation: fadein 1s 1s 1 forwards;
+    -o-animation: fadein 1s 1s 1 forwards;
+    -ms-animation: fadein 1s 1s 1 forwards;
+}
+
+#loading.done {
+    visibility: hidden;
+    opacity: 0;
+}
+
+@keyframes fadein {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1.0;
+    }
+}
+
+@-moz-keyframes fadein {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1.0;
+    }
+}
+
+@-webkit-keyframes fadein {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1.0;
+    }
+}
+
+@-o-keyframes fadein {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1.0;
+    }
+}
+
+@-ms-keyframes fadein {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1.0;
+    }
+}
+
+
+#spin {
+    display: inline-block;
+    margin-left: 1em;
+    width:256px;
+    height:20px;
+    overflow:hidden;
+    background-color:#A8EAA8;
+    -moz-border-radius:10px;
+    -webkit-border-radius:10px;
+    -o-border-radius:10px;
+    -ms-border-radius:10px;
+    border-radius:10px;
+}
+
+.spin{
+    background-color:#aaaaaa;
+    margin-top:0;
+    margin-left:-256px;
+    -moz-animation-name:bounce_spin;
+    -moz-animation-duration:2.0s;
+    -moz-animation-iteration-count:infinite;
+    -moz-animation-timing-function:linear;
+    -webkit-animation-name:bounce_spin;
+    -webkit-animation-duration:2.0s;
+    -webkit-animation-iteration-count:infinite;
+    -webkit-animation-timing-function:linear;
+    -o-animation-name:bounce_spin;
+    -o-animation-duration:2.0s;
+    -o-animation-iteration-count:infinite;
+    -o-animation-timing-function:linear;
+    -ms-animation-name:bounce_spin;
+    -ms-animation-duration:2.0s;
+    -ms-animation-iteration-count:infinite;
+    -ms-animation-timing-function:linear;
+    animation-name:bounce_spin;
+    animation-duration:2.0s;
+    animation-iteration-count:infinite;
+    animation-timing-function:linear;
+    width:256px;
+    height:20px;
+}
+
+@-moz-keyframes bounce_spin{
+    0% { margin-left:-256px; }
+    100% { margin-left:256px; }
+}
+
+@-webkit-keyframes bounce_spin{
+    0% { margin-left:-256px; }
+    100% { margin-left:256px; }
+}
+
+@-o-keyframes bounce_spin{
+    0% { margin-left:-256px; }
+    100% { margin-left:256px; }
+}
+
+@-ms-keyframes bounce_spin{
+    0% { margin-left:-256px; }
+    100% { margin-left:256px; }
+}
+
+@keyframes bounce_spin{
+    0% { margin-left:-256px; }
+    100% { margin-left:256px; }
+}
