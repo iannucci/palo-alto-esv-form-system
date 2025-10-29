@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+  <link rel="stylesheet" type="text/css" href="resources/css/loading.css">
+  <link rel="stylesheet" type="text/css" href="resources/css/pack-it-forms.css">
+  <style>
+    .annotation {
+      font-size: 80%;
+      font-weight: normal
+    }
+  </style>
+  <script>
+    const integrationEnvironment = JSON.parse(localStorage.getItem("integrationEnvironment"));
+    const integrationMessage = JSON.parse(localStorage.getItem("integrationMessage"));
+  </script>
+  <!-- <script type="text/javascript" src="resources/js/environment.js"></script> -->
+  <script type="text/javascript" src="resources/js/pack-it-forms.js"></script>
+  <script type="text/javascript" src="resources/integration/integration.js"></script>
+  <meta name="pack-it-forms-pdf-URL" content="pdf/Windshield_Survey_v20250812.pdf">
+  <meta name="pack-it-forms-subject-suffix" content="_WSSurvey_{{field:22.location}}">
+  <title>Windshield Survey</title>
+</head>
+
+<body>
+  <div class="version">1.0</div>
+  <div id="loading">
+    <div>Loading
+      <div id="spin">
+        <div id="spin_1" class="spin">
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="err">
+    <div>
+      <h2>Something went wrong.</h2>
+      This information might help resolve the problem:
+      <div id="error-log">
+      </div>
+    </div>
+  </div>
+
+  <form id="the-form" name="the-form">
+    <table id="scco-banner" class="block-caption noborder">
+      <tbody>
+        <tr>
+          <td style="border:none;padding:4pt 4pt;">
+            <span class="templated" style="font-size:150%;">Windshield Survey</span>
+            <br>
+            <span class="templated">
+
+            </span>
+          </td>
+          <td style="border:none;padding:2pt 4pt;text-align:right;vertical-align:bottom;">
+            <span class="templated" style="font-weight:normal;">PDF: 20250812<br>PIF: {{version}}</span>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div style="page-break-inside:avoid;">
+      <table>
+        <tbody>
+          <tr>
+            <td style="padding-right:0;">
+              <table class="same-line-label-layout">
+                <tbody>
+                  <tr>
+                    <th>Name:</th>
+                    <td>
+                      <input type="text" name="OpName" class="no-msg-init include-in-submit" tabindex="502"
+                        disabled="disabled" required="" style="margin-right:0;"
+                        value="{{envelope:viewer_operator_name}}">
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </td>
+            <td>
+              <b>Call Sign:</b>
+              <input type="text" name="OpCall" class="no-msg-init include-in-submit call-sign" tabindex="503"
+                disabled="disabled" required="" value="{{envelope:viewer_operator_call_sign}}">
+            </td>
+            <td>
+              <b>Date:</b>
+              <input type="text" name="OpDate" class="date no-msg-init init-on-submit" tabindex="504"
+                disabled="disabled"
+                value="{{expand-while-null:{{envelope:viewer_date}},{{open-tmpl}}date{{close-tmpl}}}}">
+            </td>
+            <td>
+              <b>Time:</b>
+              <input type="text" name="OpTime" class="time no-msg-init init-on-submit" tabindex="505"
+                disabled="disabled"
+                value="{{expand-while-null:{{envelope:viewer_time}},{{open-tmpl}}time{{close-tmpl}}}}">
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <table class="veoci">
+      <caption>Overview
+      </caption>
+      <tbody>
+        <tr>
+          <td class="label">Neighborhood:
+          </td>
+          <td class="input">
+            <table class="combobox" id="20.neighborhood-box"
+              data-options="Barron Park; College Terrace; Downtown; Fairmeadow; Green Meadow">
+              <tbody>
+                <tr>
+                  <td style="padding:0px;">
+                    <input type="text" name="1.neighborhood" value="" tabindex="20" placeholder="Select one..."
+                      required="">
+                  </td>
+                  <td class="dropdown-toggle" style="padding:0px;">
+                    <span>
+                      <img src="icon-chevron-down.png">
+                    </span>
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan="2" style="padding:0px 2px 0px 0px;">
+                    <div class="dropdown-menu">
+                      <div>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </td>
+        </tr>
+        <tr>
+          <td class="label">Block:
+          </td>
+          <td class="input">
+            <input type="text" name="2.block" tabindex="20">
+          </td>
+        </tr>
+        <tr>
+          <td class="label">Team:
+          </td>
+          <td class="input">
+            <input type="text" name="3.team" tabindex="20">
+          </td>
+        </tr>
+        <tr>
+          <td class="label">Address: (do not abbreviate)
+          </td>
+          <td class="input">
+            <input type="text" name="4.location" tabindex="20" required="">
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <table class="veoci">
+      <caption>Damage and Injuries
+      </caption>
+      <tbody>
+        <tr>
+          <td class="label" title="Is fire threatening to spread?">Fires:
+          </td>
+          <td class="input">
+            <table class="boxgroup">
+              <tbody>
+                <tr>
+                  <td title="CERT Response: Suppress only fires you can safely handle; secure the area">
+                    <input type="radio" name="5.fires" value="burning" tabindex="20" required="">Burning
+                  </td>
+                  <td>
+                    <input type="radio" name="5.fires" value="out" tabindex="20" required="">Out
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </td>
+        </tr>
+        <tr>
+          <td class="label">Hazards:
+          </td>
+          <td class="input">
+            <table class="boxgroup">
+              <tbody>
+                <tr>
+                  <td
+                    title="Can you smell gas? CERT Response: Secure the area, shut off utilities if you can safely do so.">
+                    <input type="checkbox" name="6a.gasleak" tabindex="20">Gas Leak
+                  </td>
+                  <td title="Is the road blocked? CERT Response: Turn off water at shutoff, if possible">
+                    <input type="checkbox" name="6b.water" tabindex="20">Water
+                  </td>
+                  <td
+                    title="Downed power lines. Is the road blocked?  CERT Response: Home (turn off breakers); Utility (secure the area)">
+                    <input type="checkbox" name="6c.electrical" tabindex="20">Electrical
+                  </td>
+                  <td
+                    title="Strange smell / unusual smoke. Posted hazard symbol.  CERT Response: Secure the area (Stay upwind)">
+                    <input type="checkbox" name="6d.chemical" tabindex="20">Chemical
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </td>
+        </tr>
+
+        <tr>
+          <td class="label">Structural damage:
+          </td>
+          <td class="input">
+            <table class="boxgroup">
+              <tbody>
+                <tr>
+                  <td
+                    title="Broken windows / superficial damage. Fallen / cracked plaster. Minor damage to contents.  CERT Response: Enter and rescue with caution">
+                    <input type="radio" name="7.structures" value="light" tabindex="20">Light
+                  </td>
+                  <td
+                    title="Visible signs of damage but structure still attached to foundation. Decorative work damaged or fallen. Major damage to contents. CERT Response: Rescue victims immediately. Minimize number of rescuers inside.">
+                    <input type="radio" name="7.structures" value="moderate" tabindex="20">Moderate
+                  </td>
+                  <td
+                    title="Partial or total collapse. Structure no longer attached to foundation. Tilting / obvious structural instability. Fire / gas leaks / other hazards.  Do not attempt rescue, secure the area.">
+                    <input type="radio" name="7.structures" value="heavy" tabindex="20">Heavy
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </td>
+        </tr>
+
+        <tr>
+          <td class="label">People:
+          </td>
+          <td class="input">
+            <table class="boxgroup required-group">
+              <tbody>
+                <tr>
+                  <td title="PAN and CERT Categories: Equipment required to rescue.">
+                    <input type="number" name="8a.trapped" value="" tabindex="20" style="width: 4em">Trapped
+                  </td>
+                  <td title="CERT Categories: Victim has serious injuries but does not qualify as Immediate">
+                    <input type="number" name="8b.delayed" value="" tabindex="20"
+                      style="width: 4em; background-color: rgb(249, 249, 195)"> Delayed
+                  </td>
+                  <td
+                    title="Life threatening injuries. Shock, severe blood loss. Breathing problems (describe injuries in Comments section). CERT Categories: Victim meets ANY of the following: Respiration – breathing faster than 30 breaths per minute. Pulse – severe bleeding or blanch test (capillary refill) slower than 2 seconds. Mental status – cannot respond to simple commands">
+                    <input type="number" name="8c.immediate" value="" tabindex="20"
+                      style="width: 4em; background-color: rgb(248, 128, 128)"> Immediate
+                  </td>
+                  <td title="PAN Categories: If obvious. CERT Categories: no respiration">
+                    <input type="number" name="8d.dead" value="" tabindex="20"
+                      style="width: 4em; background-color: rgb(173, 172, 172)"> Dead
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <table class="veoci">
+      <caption>Summary
+      </caption>
+      <tbody>
+        <tr>
+          <td class="label">No access:
+          </td>
+          <td class="input">
+            <table class="boxgroup">
+              <tbody>
+                <tr>
+                  <td>
+                    <input type="checkbox" name="9.noaccess" value="" tabindex="20">
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </td>
+        </tr>
+
+        <tr>
+          <td class="label">Report:
+          </td>
+          <td class="input">
+            <table class="boxgroup required-group">
+              <tbody>
+                <tr>
+                  <td>
+                    <input type="radio" name="10.complete" value="initial" tabindex="20" required="">Initial ( / )
+                  </td>
+                  <td>
+                    <input type="radio" name="10.complete" value="complete" tabindex="20" required="">Complete ( X )
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </td>
+        </tr>
+
+        <tr>
+          <td class="label"
+            title="Critical Incidents: Trapped victims, Immediate injuries, Burning fires, Hazards that you cannot handle.">
+            Critical:
+          </td>
+          <td class="input">
+            <table class="boxgroup">
+              <tbody>
+                <tr>
+                  <td
+                    title="Report the following conditions immediately (radio or runner): • Trapped victims / Immediate injuries • Burning fires that threaten lives or neighboring property • Hazards that are a threat to safety (those you cannot handle). Otherwise, record on Damage Assessment form and report routinely.">
+                    <input type="checkbox" name="11.critical" value="" tabindex="20">
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </td>
+        </tr>
+
+        <tr>
+          <td class="label">Comments:
+          </td>
+          <td class="input">
+            <textarea name="12.comments" value="" tabindex="20"></textarea>
+          </td>
+        </tr>
+
+      </tbody>
+    </table>
+
+
+  </form>
+  <table id="button-header" class="same-line-label-layout">
+    <tbody>
+      <tr>
+        <td style="vertical-align:middle;white-space:nowrap;">
+          <input type="button" id="opdirect-submit" tabindex="600" disabled="disabled" value="Submit to Outpost"
+            onclick="opdirect_submit(event)" style="font-weight:bold">
+          <input type="button" id="email-submit" tabindex="601" disabled="disabled" value="Submit via Email"
+            onclick="email_submit(event)" style="font-weight:bold">
+          &nbsp;&nbsp;
+          <input type="button" id="clear-form" tabindex="602" value="Reset Form" onclick="clear_form(event)">
+          <input type="button" id="show-PDF-form" tabindex="603" class="hidden" hidden="hidden" value="Show PDF">
+          <span id="invalid-example">
+            <input type="text" class="invalid" disabled="disabled"
+              style="margin-left:1em;width:2em;border:1px solid #cccccc;">
+            &nbsp;&nbsp;= required
+          </span>
+        </td>
+        <td style="vertical-align:middle;align:right;width:1px;white-space:nowrap;">
+          <input type="button" id="show-hide-data" tabindex="604" value="Show Text Message"
+            onclick="toggle_form_data_visibility(event)">
+          <div id="error-indicator">Error</div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <form id="form-data-form" method="post" action="http://127.0.0.1:9334/send">
+    <input id="form-subject" name="subject" style="display:none;" type="text">
+    <textarea id="form-data" name="formtext" class="hidden"></textarea>
+  </form>
+
+  <br><br>
+
+  <div id="the-form">
+    <h2>
+      Damage Assessment Categories
+    </h2>
+    <h3>Hazards</h3>
+    <table>
+      <thead>
+        <tr id="scco-banner" class="block-caption noborder">
+          <th></th>
+          <th>Condition</th>
+          <th>CERT Response</th>
+        </tr>
+      </thead>
+      <tr>
+        <td><b>Fire</b></td>
+        <td>Burning / Out. Is fire threatening to spread?</td>
+        <td>Suppress only fires you can safely handle; secure the area.</td>
+      </tr>
+      <tr>
+        <td><b>Gas Leak</b></td>
+        <td>Can you smell gas?</td>
+        <td>Home-turn of gas at meter; Utility-secure the area.</td>
+      </tr>
+      <tr>
+        <td><b>Water Leak</b></td>
+        <td>Is the road blocked?</td>
+        <td>Turn off water at shutoff, if possible.</td>
+      </tr>
+      <tr>
+        <td><b>Electrical</b></td>
+        <td>Downed power lines. Is the road blocked?</td>
+        <td>Home-turn off breakers. Utility-secure the area.</td>
+      </tr>
+      <tr>
+        <td><b>Chemical</b></td>
+        <td>Strange smell / unusual smoke. Posted hazard symbol</td>
+        <td>Secure the area. Stay upwind.</td>
+      </tr>
+    </table>
+    <h3>Structural Damage</h3>
+    <table>
+      <thead>
+        <tr id="scco-banner" class="block-caption noborder">
+          <th></th>
+          <th>Condition</th>
+          <th>CERT Response</th>
+        </tr>
+      </thead>
+      <tr>
+        <td><b>Light</b></td>
+        <td>Broken windows / superficial damage. Fallen / cracked plaster. Minor damage to contents.</td>
+        <td>Enter and rescue with caution.</td>
+      </tr>
+      <tr>
+        <td><b>Moderate</b></td>
+        <td>Visible signs of damage but structure still attached to foundation. Decorative work damaged or fallen. Major
+          damage to contents.</td>
+        <td>Rescue victims immediately. Minimize number of rescuers inside.</td>
+      </tr>
+      <tr>
+        <td><b>Heavy</b></td>
+        <td>Partial or total collapse. Structure no longer attached to foundation. Tilting / obvious structural
+          instability. Fire / gas leaks / other hazards.</td>
+        <td>Do not attempt rescue, secure the area.</td>
+      </tr>
+    </table>
+    <h3>People</h3>
+    <table>
+      <thead>
+        <tr id="scco-banner" class="block-caption noborder">
+          <th></th>
+          <th>PAN Categories</th>
+          <th>CERT Categories</th>
+        </tr>
+      </thead>
+      <tr>
+        <td><b>Trapped</b></td>
+        <td>Equipment required to rescue.</td>
+        <td>Equipment required to rescue.</td>
+      </tr>
+      <tr>
+        <td><b>Delayed</b></td>
+        <td>(not used by PAN)</td>
+        <td>Victim has serious injuries but does not qualify as Immediate.</td>
+      </tr>
+      <tr>
+        <td><b>Immediate</b></td>
+        <td>Life threatening injuries. Shock, severe blood loss. Breathing problems (describe injuries in Comments
+          section).</td>
+        <td>Victim meets ANY of the following:<br>
+          <b>Respiration</b> – breathing faster than 30 breaths per minute.<br>
+          <b>Pulse</b> – severe bleeding or blanch test (capillary refill) slower than 2 seconds.<br>
+          <b>Mental status</b> – cannot respond to simple commands.
+        </td>
+      </tr>
+      <tr>
+        <td><b>Dead</b></td>
+        <td>If obvious.</td>
+        <td>No respiration.</td>
+      </tr>
+    </table>
+    <h3>Critical Incidents</h3>
+    Report the following conditions immediately (radio or runner):<br>
+    <ul>
+      <li>Trapped victims / Immediate injuries</li>
+      <li>Burning fires that threaten lives or neighboring property</li>
+      <li>Hazards that are a threat to safety (those you cannot handle)</li>
+    </ul>
+    Otherwise, record on Damage Assessment form and report routinely.
+  </div>
+
+</body>
+
+</html>

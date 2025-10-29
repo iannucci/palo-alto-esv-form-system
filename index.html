@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<link rel="stylesheet" type="text/css" href="resources/css/loading.css">
+	<link rel="stylesheet" type="text/css" href="resources/css/pack-it-forms.css">
+	<style>
+		.annotation {
+			font-size: 80%;
+			font-weight: normal
+		}
+	</style>
+	<script>
+		var integrationEnvironment = {
+				"message_status": "manual",
+				"MSG_NUMBER": "",
+				"subject": "",
+				"active_name": "",
+				"active_call_sign": "",
+				"operator_name": "",
+				"operator_call_sign": "",
+				"tactical_name": "",
+				"tactical_call_sign": "",
+				"addon_name": "SCCoPIFO",
+				"addon_version": "3.20",
+				"ADDON_MSG_TYPE": "",
+				"emailURL": "",
+				"submitURL": "/manual-submit-11",
+				"pingURL": "/ping-11",
+				"saveURL": "/message-11"
+			};
+			var integrationMessage = undefined;
+			// Local storage only allows strings
+			localStorage.setItem("integrationEnvironment", JSON.stringify(integrationEnvironment));
+			localStorage.setItem("integrationMessage", JSON.stringify(integrationMessage));
+	</script>
+	<script type="text/javascript" src="resources/js/pack-it-forms.js"></script>
+	<script type="text/javascript" src="resources/integration/integration.js"></script>
+	<meta name="pack-it-forms-pdf-URL" content="pdf/Windshield_Survey_v20250812.pdf">
+	<meta name="pack-it-forms-subject-suffix" content="_WSSurvey_{{field:22.location}}">
+	<title>Palo Alto ESV Field Reporting</title>
+</head>
+
+<body>
+	<div class="version">1.0</div>
+	<div id="loading">
+		<div>Loading
+			<div id="spin">
+				<div id="spin_1" class="spin">
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="err">
+		<div>
+			<h2>Something went wrong.</h2>
+			This information might help resolve the problem:
+			<div id="error-log">
+			</div>
+		</div>
+	</div>
+
+	<form id="the-form" name="the-form">
+		<table id="scco-banner" class="block-caption noborder">
+			<tbody>
+				<tr>
+					<td style="border:none;padding:4pt 4pt;">
+						<span class="templated" style="font-size:150%;">Palo Alto ESV Field Reporting</span>
+						<br>
+						<span class="templated">
+
+						</span>
+					</td>
+					<td style="border:none;padding:2pt 4pt;text-align:right;vertical-align:bottom;">
+						<span class="hidden" style="font-weight:normal;">PIF: {{version}}</span>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+
+		<div style="page-break-inside:avoid;">
+			<table>
+				<tbody>
+					<tr>
+						<td style="padding-right:0;">
+							<table class="same-line-label-layout">
+								<tbody>
+									<tr>
+										<th>Name:</th>
+										<td>
+											<input type="text" name="OpName" class="no-msg-init include-in-submit"
+												tabindex="502" disabled="disabled" required="" style="margin-right:0;"
+												value="{{envelope:viewer_operator_name}}">
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						</td>
+						<td>
+							<b>Call Sign:</b>
+							<input type="text" name="OpCall" class="no-msg-init include-in-submit call-sign"
+								tabindex="503" disabled="disabled" required=""
+								value="{{envelope:viewer_operator_call_sign}}">
+						</td>
+
+					</tr>
+				</tbody>
+			</table>
+		</div>
+
+		<table class="veoci">
+
+			<tbody>
+				<tr>
+					<td class="label">Neighborhood:
+					</td>
+					<td class="input">
+						<table class="combobox" id="20.neighborhood-box"
+							data-options="Adobe Meadow; Barron Park; Charleston Gardens; Charleston Meadows; College Terrace; Community Center; Crescent Park; Downtown North; Duveneck/St Francis; Embarcadero Oaks; Esther Clark Park; Evergreen Park; Fairmeadow; Garland Park; Greater Miranda; Green Acres; Greendell; Greenmeadow; Leland Manor; Mayfield; Meadow Park; Midtown; Monroe Park; Neighborhood list; Old Palo Alto; Palo Alto Hills; Palo Alto Orchards; Palo Verde; Professorville; San Alma; South of Midtown; Southgate; St. Claire Gardens; The Greenhouse; Triple El; University South; Ventura; Walnut Grove">
+							<tbody>
+								<tr>
+									<td style="padding:0px;">
+										<input type="text" name="1.neighborhood" value="" tabindex="20"
+											placeholder="Select one..." required="">
+									</td>
+									<td class="dropdown-toggle" style="padding:0px;">
+										<span>
+											<img src="icon-chevron-down.png">
+										</span>
+									</td>
+								</tr>
+								<tr>
+									<td colspan="2" style="padding:0px 2px 0px 0px;">
+										<div class="dropdown-menu">
+											<div>
+											</div>
+										</div>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</td>
+				</tr>
+				<tr>
+					<td class="label">Block:
+					</td>
+					<td class="input">
+						<input type="text" name="2.block" tabindex="20">
+					</td>
+				</tr>
+				<tr>
+					<td class="label">Team:
+					</td>
+					<td class="input">
+						<input type="text" name="3.team" tabindex="20">
+					</td>
+				</tr>
+
+			</tbody>
+		</table>
+
+	</form>
+
+	<a href="form-windshield-survey.html">Windshield Survey</a>
+
+	<table id="button-header" class="hidden">
+		<tbody>
+			<tr>
+				<td style="vertical-align:middle;white-space:nowrap;">
+					<input type="button" id="opdirect-submit" tabindex="600" disabled="disabled"
+						value="Submit to Outpost" onclick="opdirect_submit(event)" style="font-weight:bold">
+					<input type="button" id="email-submit" tabindex="601" disabled="disabled" value="Submit via Email"
+						onclick="email_submit(event)" style="font-weight:bold">
+					&nbsp;&nbsp;
+					<input type="button" id="clear-form" tabindex="602" value="Reset Form" onclick="clear_form(event)">
+					<input type="button" id="show-PDF-form" tabindex="603" class="hidden" hidden="hidden"
+						value="Show PDF">
+					<span id="invalid-example">
+						<input type="text" class="invalid" disabled="disabled"
+							style="margin-left:1em;width:2em;border:1px solid #cccccc;">
+						&nbsp;&nbsp;= required
+					</span>
+				</td>
+				<td style="vertical-align:middle;align:right;width:1px;white-space:nowrap;">
+					<input type="button" id="show-hide-data" tabindex="604" value="Show Text Message"
+						onclick="toggle_form_data_visibility(event)">
+					<div id="error-indicator">Error</div>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	<form id="form-data-form" method="post" action="http://127.0.0.1:9334/send">
+		<input id="form-subject" name="subject" style="display:none;" type="text">
+		<textarea id="form-data" name="formtext" class="hidden"></textarea>
+	</form>
+
+	<br><br>
+
+	
+
+</body>
+
+</html>
