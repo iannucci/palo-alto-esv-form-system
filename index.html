@@ -32,14 +32,14 @@
 			};
 		var integrationMessage = [];
 
-		windshield_form = document.getElementById("windshield-form");
-		windshield_form.addEventListener("submit", function (event) {
+		windshield_button = document.getElementById("WindshieldButton");
+		windshield_button.addEventListener("onClick", function (event) {
 			event.preventDefault();
-			// Local storage only allows strings
 			const opname = document.getElementById("OpName").value;
 			const opcall = document.getElementById("OpCall").value;
 			integrationEnvironment.operator_name = opname;
 			integrationEnvironment.operator_call_sign = opcall;
+			// Local storage only allows strings
 			localStorage.setItem("integrationEnvironment", JSON.stringify(integrationEnvironment));
 			localStorage.setItem("integrationMessage", JSON.stringify(integrationMessage));
 			window.location.href = "form-windshield-survey.html";
@@ -174,9 +174,7 @@
 	</form>
 
 	<form id="windshield-form" name="windshield-form">
-		<input type="text" name="windshield" class="no-msg-init"
-		tabindex="502" required="" style="margin-right:0;"
-		value="Windshield Survey">
+		<button id="WindshieldButton" name="Windshield Survey" style="margin-right:0;" value="Windshield Survey">
 	</form>
 
 	<table id="button-header" class="hidden">
