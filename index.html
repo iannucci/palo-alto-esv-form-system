@@ -32,9 +32,7 @@
 			};
 		var integrationMessage = [];
 
-		windshield_button = document.getElementById("WindshieldButton");
-		windshield_button.addEventListener("onClick", function (event) {
-			event.preventDefault();
+		function windshield_button_onClick() {
 			const opname = document.getElementById("OpName").value;
 			const opcall = document.getElementById("OpCall").value;
 			integrationEnvironment.operator_name = opname;
@@ -43,8 +41,7 @@
 			localStorage.setItem("integrationEnvironment", JSON.stringify(integrationEnvironment));
 			localStorage.setItem("integrationMessage", JSON.stringify(integrationMessage));
 			window.location.href = "form-windshield-survey.html";
-		});
-
+		};
 	</script>
 	<script type="text/javascript" src="resources/js/pack-it-forms.js"></script>
 	<script type="text/javascript" src="resources/integration/integration.js"></script>
@@ -173,7 +170,7 @@
 
 	</form>
 
-	<button id="WindshieldButton">Windshield Survey</button>	
+	<button id="WindshieldButton" onClick="windshield_button_onClick()">Windshield Survey</button>	
 
 	<table id="button-header" class="hidden">
 		<tbody>
