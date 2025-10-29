@@ -14,6 +14,12 @@
   <script>
     const integrationEnvironment = JSON.parse(localStorage.getItem("integrationEnvironment"));
     const integrationMessage = JSON.parse(localStorage.getItem("integrationMessage"));
+    const opname = integrationEnvironment.operator_name || "";
+    const opcall = integrationEnvironment.operator_call_sign || "";
+    document.getElementById("OpName").value = opname;
+    document.getElementById("OpCall").value = opcall;
+    // localStorage.remove("integrationEnvironment");
+    // localStorage.remove("integrationMessage");
   </script>
   <!-- <script type="text/javascript" src="resources/js/environment.js"></script> -->
   <script type="text/javascript" src="resources/js/pack-it-forms.js"></script>
@@ -70,7 +76,7 @@
                   <tr>
                     <th>Name:</th>
                     <td>
-                      <input type="text" name="OpName" class="no-msg-init include-in-submit" tabindex="502"
+                      <input type="text" id="OpName" name="OpName" class="no-msg-init include-in-submit" tabindex="502"
                         disabled="disabled" required="" style="margin-right:0;"
                         value="{{envelope:viewer_operator_name}}">
                     </td>
@@ -80,7 +86,7 @@
             </td>
             <td>
               <b>Call Sign:</b>
-              <input type="text" name="OpCall" class="no-msg-init include-in-submit call-sign" tabindex="503"
+              <input type="text" id="OpCall" name="OpCall" class="no-msg-init include-in-submit call-sign" tabindex="503"
                 disabled="disabled" required="" value="{{envelope:viewer_operator_call_sign}}">
             </td>
             <td>
@@ -109,7 +115,7 @@
           </td>
           <td class="input">
             <table class="combobox" id="20.neighborhood-box"
-              data-options="Barron Park; College Terrace; Downtown; Fairmeadow; Green Meadow">
+              data-options="Adobe Meadow; Barron Park; Charleston Gardens; Charleston Meadows; College Terrace; Community Center; Crescent Park; Downtown North; Duveneck/St Francis; Embarcadero Oaks; Esther Clark Park; Evergreen Park; Fairmeadow; Garland Park; Greater Miranda; Green Acres; Greendell; Greenmeadow; Leland Manor; Mayfield; Meadow Park; Midtown; Monroe Park; Neighborhood list; Old Palo Alto; Palo Alto Hills; Palo Alto Orchards; Palo Verde; Professorville; San Alma; South of Midtown; Southgate; St. Claire Gardens; The Greenhouse; Triple El; University South; Ventura; Walnut Grove">
               <tbody>
                 <tr>
                   <td style="padding:0px;">

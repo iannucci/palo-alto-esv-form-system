@@ -26,14 +26,25 @@
 				"addon_version": "3.20",
 				"ADDON_MSG_TYPE": "",
 				"emailURL": "",
-				"submitURL": "/manual-submit-11",
-				"pingURL": "/ping-11",
-				"saveURL": "/message-11"
+				"submitURL": "",
+				"pingURL": "",
+				"saveURL": ""
 			};
 		var integrationMessage = [];
-		// Local storage only allows strings
-		localStorage.setItem("integrationEnvironment", JSON.stringify(integrationEnvironment));
-		localStorage.setItem("integrationMessage", JSON.stringify(integrationMessage));
+
+		windshield_form = document.getElementById("windshield-form");
+		windshield_form.addEventListener("submit", function (event) {
+			event.preventDefault();
+			// Local storage only allows strings
+			const opname = document.getElementById("OpName").value;
+			const opcall = document.getElementById("OpCall").value;
+			integrationEnvironment.operator_name = opname;
+			integrationEnvironment.operator_call_sign = opcall;
+			localStorage.setItem("integrationEnvironment", JSON.stringify(integrationEnvironment));
+			localStorage.setItem("integrationMessage", JSON.stringify(integrationMessage));
+			window.location.href = "form-windshield-survey.html";
+		});
+
 	</script>
 	<script type="text/javascript" src="resources/js/pack-it-forms.js"></script>
 	<script type="text/javascript" src="resources/integration/integration.js"></script>
@@ -89,7 +100,7 @@
 									<tr>
 										<th>Name:</th>
 										<td>
-											<input type="text" name="OpName" class="no-msg-init include-in-submit"
+											<input type="text" id="OpName" name="OpName" class="no-msg-init include-in-submit"
 												tabindex="502" disabled="disabled" required="" style="margin-right:0;"
 												value="{{envelope:viewer_operator_name}}">
 										</td>
@@ -99,7 +110,7 @@
 						</td>
 						<td>
 							<b>Call Sign:</b>
-							<input type="text" name="OpCall" class="no-msg-init include-in-submit call-sign"
+							<input type="text" id="OpCall" name="OpCall" class="no-msg-init include-in-submit call-sign"
 								tabindex="503" disabled="disabled" required=""
 								value="{{envelope:viewer_operator_call_sign}}">
 						</td>
@@ -162,7 +173,11 @@
 
 	</form>
 
-	<a href="form-windshield-survey.html">Windshield Survey</a>
+	<form id="windshield-form" name="windshield-form">
+		<input type="text" name="windshield" class="no-msg-init"
+		tabindex="502" required="" style="margin-right:0;"
+		value="Windshield Survey">
+	</form>
 
 	<table id="button-header" class="hidden">
 		<tbody>
