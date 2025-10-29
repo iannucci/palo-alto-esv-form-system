@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv=Content-type content=text/html;charset=UTF-8>
+    <link rel=stylesheet type=text/css href=resources/css/loading.css>
+    <link rel=stylesheet type=text/css href=resources/css/pack-it-forms.css>
+    <style>.annotation { font-size: 80%; font-weight: normal }</style>
+    <script type=text/javascript src=resources/js/environment.js></script>
+    <script type=text/javascript src=resources/js/pack-it-forms.js></script>
+    <script type=text/javascript src="resources/integration/integration.js"></script>
+    <meta name="pack-it-forms-pdf-URL" content="pdf/Damage_Assessment_v20250812.pdf">
+    <meta name="pack-it-forms-subject-suffix" content="_DmgAsmt_{{field:22.address}}">
+    <title>Damage Assessment</title>
+  </head>
+
+  <body>
+    <div class=version>1.0</div>
+        <div id="loading"><div>Loading<div id="spin"><div id="spin_1" class="spin"></div></div></div></div>
+    <div id="err">
+      <div>
+        <h2>Something went wrong.</h2>
+        This information might help resolve the problem:
+        <div id="error-log"></div>
+      </div>
+    </div>
+
+    <form id=the-form name=the-form>
+        <table id="scco-banner" class="block-caption noborder">
+    <tr>
+      <td style="border:none;padding:4pt 4pt;">
+        <span class="templated" style="font-size:150%;">Damage Assessment</span>
+        <br/>
+        <span class="templated"></span>
+      </td>
+      <td style="border:none;padding:2pt 4pt;text-align:right;vertical-align:bottom;">
+        <span class="templated" style="font-weight:normal;">PDF: 20250812<br/>PIF: {{version}}</span>
+      </td>
+    </tr>
+  </table>
+  <table>
+    <tr>
+      <td style="white-space:nowrap;width:1px;">
+        <b>Message Numbers:</b>
+      </td><td>
+        <b>Origin:</b>
+        <input type="text" name="MsgNo" class="message-number no-msg-init" tabindex="1"
+               value="{{envelope:sender_message_number}}" required/>
+      </td><td>
+        <b>Destination:</b>
+        <input type="text" class="message-number" disabled="disabled" tabindex="2"
+               value="{{envelope:receiver_message_number}}"/>
+      </td>
+    </tr>
+  </table>
+  <table>
+    <tr>
+      <td>
+        <b>Date:</b>
+        <input type="text" name="1a.date" class="date" value="{{date}}" required tabindex="3"/>
+      </td><td>
+        <b>Time:</b>
+        <input type="text" name="1b.time" class="time" value="" required tabindex="4"/>
+      </td><td class="label-sameline">
+        <b>Handling:</b>
+        <div class="required-group" style="margin-left:0.5em;padding-left:0;padding-right:0.5em;">
+          <label>
+            <input type="radio" name="5.handling" tabindex="5"
+                   data-default-value="ROUTINE"
+                   required value="IMMEDIATE"/>Immediate
+            <span style="font-weight:normal;">(ASAP)</span>
+          </label>
+          <label style="margin-left:1em;margin-right:1em;">
+            <input type="radio" name="5.handling" tabindex="6"
+                   required value="PRIORITY"/>Priority
+            <span style="font-weight:normal;">(&lt;1 hr)</span>
+          </label>
+          <label>
+            <input type="radio" name="5.handling" tabindex="7"
+                   required value="ROUTINE"/>Routine
+            <span style="font-weight:normal;">(&lt;2 hrs)</span>
+          </label>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table id="form-row-3">
+    <tr>
+      <td rowspan="4" class="block-caption" style="width:1px;">
+        T<br/>O
+      </td><td>
+        <table class="same-line-label-layout">
+          <tr>
+            <th>ICS Position:</th>
+            <td style="padding-right:0;">
+              <table class="combobox" id="7a.to-ics-position-box" data-options="Damage/Safety Assessment Group; Construction & Eng. Branch; Operations">
+  <tr>
+    <td style="padding:0px;">
+      <input type="text" name="7a.to-ics-position" value="Damage&#x2F;Safety Assessment Group" tabindex="8" required/>
+    </td>
+    <td class="dropdown-toggle" style="padding:0px;">
+      <span>
+        <img src="icon-chevron-down.png"/>
+      </span>
+    </td>
+  </tr><tr>
+    <td colspan="2" style="padding:0px 2px 0px 0px;">
+      <div class="dropdown-menu">
+        <div>
+        </div>
+      </div>
+    </td>
+  </tr>
+</table>
+
+            </td>
+          </tr>
+        </table>
+      </td><td rowspan="4" class="block-caption" style="width:1px;">
+        F<br/>R<br/>O<br/>M
+      </td><td>
+        <table class="same-line-label-layout">
+          <tr>
+            <th>ICS Position:</th>
+            <td><input type="text" name="8a.from-ics-position" value="" required tabindex="12"/></td>
+          </tr>
+        </table>
+      </td>
+    </tr><tr>
+      <td>
+        <table class="same-line-label-layout">
+          <tr>
+            <th>Location:</th>
+            <td style="padding-right:0;">
+              <table class="combobox" id="7b.to-location-box">
+  <tr>
+    <td style="padding:0px;">
+      <input type="text" name="7b.to-location" value="" tabindex="9" required/>
+    </td>
+    <td class="dropdown-toggle" style="padding:0px;">
+      <span>
+        <img src="icon-chevron-down.png"/>
+      </span>
+    </td>
+  </tr><tr>
+    <td colspan="2" style="padding:0px 2px 0px 0px;">
+      <div class="dropdown-menu">
+        <div>
+        </div>
+      </div>
+    </td>
+  </tr>
+</table>
+
+            </td>
+          </tr>
+        </table>
+      </td><td>
+        <table class="same-line-label-layout">
+          <tr>
+            <th>Location:</th>
+            <td><input type="text" name="8b.from-location" value="" required tabindex="13"/></td>
+          </tr>
+        </table>
+      </td>
+    </tr><tr>
+      <td>
+        <table class="same-line-label-layout">
+          <tr>
+            <th>Name:</th>
+            <td><input type="text" name="7c.to-name" tabindex="10"/></td>
+          </tr>
+        </table>
+      </td><td>
+        <table class="same-line-label-layout">
+          <tr>
+            <th>Name:</th>
+            <td><input type="text" name="8c.from-name" tabindex="14"/></td>
+          </tr>
+        </table>
+      </td>
+    </tr><tr>
+      <td>
+        <table class="same-line-label-layout">
+          <tr>
+            <th>Contact Info:</th>
+            <td><input type="text" name="7d.to-contact" tabindex="11"/></td>
+          </tr>
+        </table>
+      </td><td>
+        <table class="same-line-label-layout">
+          <tr>
+            <th>Contact Info:</th>
+            <td><input type="text" name="8d.from-contact" tabindex="15"/></td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+      <table class=veoci>
+        <caption>Overview
+        <tr>
+          <td class=label>Jurisdiction:
+          <td class="input nest">
+            <table><tr>
+              <td class=input>
+                <table class="combobox" id="20.jurisdiction-box" data-options="Campbell; Cupertino; Gilroy; Los Altos; Los Altos Hills; Los Gatos; Milpitas; Monte Sereno; Morgan Hill; Mountain View; Palo Alto; San Jose; Santa Clara (City); Saratoga; Sunnyvale; Santa Clara County; County unincorporated">
+  <tr>
+    <td style="padding:0px;">
+      <input type="text" name="20.jurisdiction" value="" tabindex="20" placeholder="Select one..." required/>
+    </td>
+    <td class="dropdown-toggle" style="padding:0px;">
+      <span>
+        <img src="icon-chevron-down.png"/>
+      </span>
+    </td>
+  </tr><tr>
+    <td colspan="2" style="padding:0px 2px 0px 0px;">
+      <div class="dropdown-menu">
+        <div>
+        </div>
+      </div>
+    </td>
+  </tr>
+</table>
+              <td class=label>Incident Name:
+              <td class=input><input type=text name=21.incident-name tabindex=20 required>
+            </table>
+        <tr>
+          <td class=label>Address:
+          <td class="input nest">
+            <table><tr>
+              <td class=input><input type=text name=22.address tabindex=20 required>
+              <td class=label>Unit/Suite:
+              <td class=input><input type=text name=23.unit-suite tabindex=20 style="max-width:5em">
+            </table>
+        <tr>
+          <td class=label-top>Type of Structure:
+          <td class=input>
+            <table class="boxgroup required-group">
+              <tr>
+                <td><input name=24.type-structure type=radio value="Single Family" tabindex=20 required>Single Family
+                <td><input name=24.type-structure type=radio value="Mobile Home" tabindex=20 required>Mobile Home
+                <td><input name=24.type-structure type=radio value="Non-Profit Orgs" tabindex=20 required>Non-Profit Orgs
+              <tr>
+                <td><input name=24.type-structure type=radio value=Multi-Family tabindex=20 required>Multi-Family
+                <td><input name=24.type-structure type=radio value=Business tabindex=20 required>Business
+                <td><input name=24.type-structure type=radio value=Outbuilding tabindex=20 required>Outbuilding
+            </table>
+        <tr>
+          <td class=label>Number of Stories:
+          <td class=input><input name=25.stories type=text class=nonzero-cardinal-number tabindex=20>
+        <tr>
+          <td class=label>Own/Rent:
+          <td class=input>
+            <table class=boxgroup><tr>
+              <td><input name=26.own-rent type=radio value=Own tabindex=20>Own
+              <td><input name=26.own-rent type=radio value=Rent tabindex=20>Rent
+            </table>
+        <tr>
+          <td class=label-top>Types of Damage:
+          <td class=input>
+            <table class="boxgroup required-group">
+              <tr>
+                <td><input name=27a.type-damage-flooding type=checkbox tabindex=20 required>Flooding
+                <td><input name=27c.type-damage-structural type=checkbox tabindex=20 required>Structural
+              <tr>
+                <td><input name=27b.type-damage-exterior type=checkbox tabindex=20 required>Roof / Windows / Other Exterior
+                <td><input name=27d.type-damage-other type=checkbox tabindex=20 required>Other <span class=annotation>(define in comments)</span>
+            </table>
+        <tr>
+          <td class=label-top>Basement Type:</td>
+          <td class=input>
+            <table class="boxgroup required-group">
+              <tr>
+                <td><input name=28.basement type=radio value=Basement tabindex=20 required>Basement
+                <td><input name=28.basement type=radio value="Basement and Crawlspace" tabindex=20 required>Basement and Crawlspace
+              <tr>
+                <td><input name=28.basement type=radio value=Crawlspace tabindex=20 required>Crawlspace
+                <td><input name=28.basement type=radio value=N/A tabindex=20 required>N/A
+            </table>
+        <tr><td class=label colspan=2 style="border-bottom:none;padding-bottom:0">What is the damage classification for this property?
+        <tr>
+          <td class=label>
+          <td class=input>
+            <table class="boxgroup required-group">
+              <tr>
+                <td><input name=29.damage-class type=radio value=Destroyed tabindex=20 required>Destroyed
+                <td><input name=29.damage-class type=radio value=Minor tabindex=20 required>Minor
+                <td><input name=29.damage-class type=radio value="No Visible Damage" tabindex=20 required>No Visible Damage
+              <tr>
+                <td><input name=29.damage-class type=radio value=Major tabindex=20 required>Major
+                <td colspan=2><input name=29.damage-class type=radio value=Affected tabindex=20 required>Affected (Superficial or Cosmetic Damage Only)
+            </table>
+        <tr>
+          <td class=label>Tag:
+          <td class=input>
+            <table class=boxgroup><tr>
+              <td><input name=30.tag type=radio value=Green tabindex=20>Green Tagged
+              <td><input name=30.tag type=radio value=Yellow tabindex=20>Yellow Tagged
+              <td><input name=30.tag type=radio value=Red tabindex=20>Red Tagged
+            </table>
+        <tr>
+          <td class=label>Insurance:
+          <td class="input nest">
+            <table><tr>
+              <td class=input>
+                <table class=boxgroup><tr>
+                  <td><input name=31.insurance type=radio value=Yes tabindex=20>Yes
+                  <td><input name=31.insurance type=radio value=No tabindex=20>No
+                </table>
+              <td class=label>Estimated Damage ($):
+              <td class=input><input type=text name=32.estimate class=cardinal-number tabindex=20 style="width:8em">
+            </table>
+        <tr>
+          <td class=label>Comments:
+          <td class=input><textarea name=33.comments rows=2 tabindex=20></textarea>
+        <tr>
+          <td class=label>Contact Name:
+          <td class="input nest">
+            <table><tr>
+              <td class=input><input type=text name=34.contact-name tabindex=20 required>
+              <td class=label>Contact Phone:
+              <td class=input><input type=text name=35.contact-phone class=phone-number tabindex=20 required>
+            </table>
+      </table>
+        <div style="page-break-inside:avoid;">
+    <table class="border" style="border:1px solid #aaaaaa;">
+      <tr class="block-caption">
+        <td colspan="3">Radio Operator Only:</td>
+      </tr><tr>
+        <td class="block-caption" style="width:1px;">
+          Relay:
+        </td><td style="width:50%">
+          <table class="same-line-label-layout">
+            <tr>
+              <th>Rcvd:</th>
+              <td><input type="text" name="OpRelayRcvd" tabindex="500"/></td>
+            </tr>
+          </table>
+        </td><td style="width:50%">
+          <table class="same-line-label-layout">
+            <tr>
+              <th>Sent:</th>
+              <td><input type="text" name="OpRelaySent" tabindex="501"/></td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table><table>
+      <tr>
+        <td style="padding-right:0;">
+          <table class="same-line-label-layout">
+            <tr>
+              <th>Name:</th>
+              <td>
+                <input type="text" name="OpName" class="no-msg-init include-in-submit" tabindex="502"
+                       disabled="disabled" style="margin-right:0;"
+                       value="{{envelope:viewer_operator_name}}"/>
+              </td>
+            </tr>
+          </table>
+        </td><td>
+          <b>Call Sign:</b>
+          <input type="text" name="OpCall" class="no-msg-init include-in-submit call-sign" tabindex="503"
+                 disabled="disabled" required
+                 value="{{envelope:viewer_operator_call_sign}}"/>
+        </td><td>
+          <b>Date:</b>
+          <input type="text" name="OpDate" class="date no-msg-init init-on-submit" tabindex="504"
+                 disabled="disabled"
+                 value="{{expand-while-null:{{envelope:viewer_date}},{{open-tmpl}}date{{close-tmpl}}}}"/>
+        </td><td>
+          <b>Time:</b>
+          <input type="text" name="OpTime" class="time no-msg-init init-on-submit" tabindex="505"
+                 disabled="disabled"
+                 value="{{expand-while-null:{{envelope:viewer_time}},{{open-tmpl}}time{{close-tmpl}}}}"/>
+        </td>
+      </tr>
+    </table>
+  </div>
+
+    </form>
+      <table id="button-header" class="same-line-label-layout">
+    <tr>
+      <td style="vertical-align:middle;white-space:nowrap;">
+        <input type="button" id="opdirect-submit" tabindex="600" disabled="disabled"
+               value="Submit to Outpost" onclick="opdirect_submit(event)"
+               style="font-weight:bold"/>
+        <input type="button" id="email-submit" tabindex="601" disabled="disabled"
+               value="Submit via Email"  onclick="email_submit(event)"
+               style="font-weight:bold"/>
+        &#160;&#160;
+        <input type="button" id="clear-form" tabindex="602"
+               value="Reset Form" onclick="clear_form(event)"/>
+        <input type="button" id="show-PDF-form" tabindex="603" class="hidden" hidden="hidden"
+               value="Show PDF"/>
+        <span id="invalid-example">
+          <input type="text" class="invalid" disabled="disabled"
+                 style="margin-left:1em;width:2em;border:1px solid #cccccc;"/>
+          &nbsp;&nbsp;= required
+        </span>
+      </td><td style="vertical-align:middle;align:right;width:1px;white-space:nowrap;">
+        <input type="button" id="show-hide-data" tabindex="604"
+               value="Show Text Message"
+               onclick="toggle_form_data_visibility(event)"/>
+        <div id="error-indicator">Error</div>
+      </td>
+    </tr>
+  </table>
+  <form id="form-data-form" method="post" action="http://127.0.0.1:9334/send">
+    <input id="form-subject" name="subject" style="display:none;" type="text"/>
+    <textarea id="form-data" name="formtext" class="hidden"></textarea>
+  </form>
+
+  </body>
+</html>
