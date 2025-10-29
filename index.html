@@ -20,6 +20,9 @@
 				"active_call_sign": "",
 				"operator_name": "",
 				"operator_call_sign": "",
+				"neighborhood": "",
+				"block": "",
+				"team": "",
 				"tactical_name": "",
 				"tactical_call_sign": "",
 				"addon_name": "SCCoPIFO",
@@ -35,8 +38,14 @@
 		function windshield_button_onClick() {
 			const opname = document.getElementById("OpName").value;
 			const opcall = document.getElementById("OpCall").value;
+			const neighborhood = document.getElementById("Neighborhood").value;
+			const block = document.getElementById("Block").value;
+			const team = document.getElementById("Team").value;
 			integrationEnvironment.operator_name = opname;
 			integrationEnvironment.operator_call_sign = opcall;
+			integrationEnvironment.neighborhood = neighborhood;
+			integrationEnvironment.block = block;
+			integrationEnvironment.team = team;
 			// Local storage only allows strings
 			localStorage.setItem("integrationEnvironment", JSON.stringify(integrationEnvironment));
 			localStorage.setItem("integrationMessage", JSON.stringify(integrationMessage));
@@ -129,7 +138,7 @@
 							<tbody>
 								<tr>
 									<td style="padding:0px;">
-										<input type="text" name="1.neighborhood" value="" tabindex="20"
+										<input id="Neighborhood" type="text" name="1.neighborhood" value="" tabindex="20"
 											placeholder="Select one..." required="">
 									</td>
 									<td class="dropdown-toggle" style="padding:0px;">
@@ -154,14 +163,14 @@
 					<td class="label">Block:
 					</td>
 					<td class="input">
-						<input type="text" name="2.block" tabindex="20">
+						<input id="Block" type="text" name="2.block" tabindex="20">
 					</td>
 				</tr>
 				<tr>
 					<td class="label">Team:
 					</td>
 					<td class="input">
-						<input type="text" name="3.team" tabindex="20">
+						<input id="Team" type="text" name="3.team" tabindex="20">
 					</td>
 				</tr>
 
