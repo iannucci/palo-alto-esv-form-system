@@ -11,6 +11,10 @@
       font-weight: normal
     }
   </style>
+  <script>
+    const integrationEnvironment = JSON.parse(localStorage.getItem("integrationEnvironment"));
+    const integrationMessage = JSON.parse(localStorage.getItem("integrationMessage"));
+  </script
 
   <!-- <script type="text/javascript" src="resources/js/environment.js"></script> -->
   <script type="text/javascript" src="resources/js/pack-it-forms.js"></script>
@@ -474,8 +478,6 @@
   </div>
 
 <script>
-    const integrationEnvironment = JSON.parse(localStorage.getItem("integrationEnvironment"));
-    const integrationMessage = JSON.parse(localStorage.getItem("integrationMessage"));
     const opname = integrationEnvironment.operator_name || "";
     const opcall = integrationEnvironment.operator_call_sign || "";
     const neighborhood = integrationEnvironment.neighborhood || "";
