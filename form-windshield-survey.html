@@ -19,7 +19,8 @@
     const neighborhood = integrationEnvironment.neighborhood || "";
     const block = integrationEnvironment.block || "";
     const team = integrationEnvironment.team || "";
-    document.getElementById("OpName").value = opname;
+    opname_element = document.getElementById("OpName")
+    opname_element.value = opname;
     document.getElementById("OpCall").value = opcall;
     document.getElementById("Neighborhood").value = neighborhood;
     document.getElementById("Block").value = block;
