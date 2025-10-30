@@ -180,7 +180,7 @@
 
 	</form>
 
-	<button id="WindshieldButton" class="button-10" onClick="windshield_button_onClick()" hidden>Windshield Survey</button>	
+	<button id="WindshieldButton" class="button-10" onClick="windshield_button_onClick()" disabled>Windshield Survey</button>	
 
 	<table id="button-header" class="hidden">
 		<tbody>
@@ -225,7 +225,7 @@
 
 	function checkFormValidity() {
 		const allFieldsFilled = nameInput.value.trim() !== '' && callInput.value.trim() !== '' && neighborhoodInput.value.trim() !== '' && blockInput.value.trim() !== '' && teamInput.value.trim() !== '';
-		submitButton.hidden = !allFieldsFilled;
+		submitButton.disabled = !allFieldsFilled;
 	}
 
 	nameInput.addEventListener('keyup', checkFormValidity);
