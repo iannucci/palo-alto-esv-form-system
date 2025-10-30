@@ -19,14 +19,17 @@
     const neighborhood = integrationEnvironment.neighborhood || "";
     const block = integrationEnvironment.block || "";
     const team = integrationEnvironment.team || "";
-    opname_element = document.getElementById("OpName")
-    opname_element.value = opname;
-    document.getElementById("OpCall").value = opcall;
-    document.getElementById("Neighborhood").value = neighborhood;
-    document.getElementById("Block").value = block;
-    document.getElementById("Team").value = team;
-    // localStorage.remove("integrationEnvironment");
-    // localStorage.remove("integrationMessage");
+
+    window.onload = function () {
+        document.getElementById("OpName").value = opname;
+        document.getElementById("OpCall").value = opcall;
+        document.getElementById("Neighborhood").value = neighborhood;
+        document.getElementById("Block").value = block;
+        document.getElementById("Team").value = team;
+        // localStorage.remove("integrationEnvironment");
+        // localStorage.remove("integrationMessage");
+      };
+
   </script>
   <!-- <script type="text/javascript" src="resources/js/environment.js"></script> -->
   <script type="text/javascript" src="resources/js/pack-it-forms.js"></script>
