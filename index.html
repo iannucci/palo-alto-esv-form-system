@@ -214,8 +214,29 @@
 	</form>
 
 	<br><br>
+<script>
+	const nameInput = document.getElementById('OpName');
+	const callInput = document.getElementById('OpCall');
+	const neighborhoodInput = document.getElementById('Neighborhood');
+	const blockInput = document.getElementById('Block');
+	const teamInput = document.getElementById('Team');
 
-	
+	const submitButton = document.getElementById('WindshieldButton');
+
+	function checkFormValidity() {
+		const allFieldsFilled = nameInput.value.trim() !== '' && callInput.value.trim() !== '' && neighborhoodInput.value.trim() !== '' && blockInput.value.trim() !== '' && teamInput.value.trim() !== '';
+		submitButton.disabled = !allFieldsFilled;
+	}
+
+	nameInput.addEventListener('keyup', checkFormValidity);
+	callInput.addEventListener('keyup', checkFormValidity);
+	neighborhoodInput.addEventListener('keyup', checkFormValidity);
+	blockInput.addEventListener('keyup', checkFormValidity);
+	teamInput.addEventListener('keyup', checkFormValidity);
+
+	// Initial check in case fields are pre-filled
+	checkFormValidity();
+</script>
 
 </body>
 
