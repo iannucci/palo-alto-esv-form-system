@@ -134,20 +134,6 @@
           </td>
         </tr>
         <tr>
-          <td class="label">Block:
-          </td>
-          <td class="input">
-            <input id="Block" type="text" name="2.block" tabindex="20">
-          </td>
-        </tr>
-        <tr>
-          <td class="label">Team:
-          </td>
-          <td class="input">
-            <input id="Team" type="text" name="3.team" tabindex="20">
-          </td>
-        </tr>
-        <tr>
           <td class="label">Address: (do not abbreviate)
           </td>
           <td class="input">
@@ -168,10 +154,10 @@
               <tbody>
                 <tr>
                   <td title="CERT Response: Suppress only fires you can safely handle; secure the area">
-                    <input type="radio" name="5.fires" value="burning" tabindex="20" required="">Burning
+                    <input type="radio" name="5.fires" value="burning" tabindex="20">Burning
                   </td>
                   <td>
-                    <input type="radio" name="5.fires" value="out" tabindex="20" required="">Out
+                    <input type="radio" name="5.fires" value="out" tabindex="20">Out
                   </td>
                 </tr>
               </tbody>
@@ -385,7 +371,7 @@
       <tr>
         <td><b>Gas Leak</b></td>
         <td>Can you smell gas?</td>
-        <td>Home-turn of gas at meter; Utility-secure the area.</td>
+        <td>Home-turn off gas at meter; Utility-secure the area.</td>
       </tr>
       <tr>
         <td><b>Water Leak</b></td>
@@ -479,14 +465,14 @@
     const opname = integrationEnvironment.operator_name || "";
     const opcall = integrationEnvironment.operator_call_sign || "";
     const neighborhood = integrationEnvironment.neighborhood || "";
-    const block = integrationEnvironment.block || "";
-    const team = integrationEnvironment.team || "";
+    // const block = integrationEnvironment.block || "";
+    // const team = integrationEnvironment.team || "";
 
     document.getElementById("OpName").value = opname;
     document.getElementById("OpCall").value = opcall;
     document.getElementById("Neighborhood").value = neighborhood;
-    document.getElementById("Block").value = block;
-    document.getElementById("Team").value = team;
+    // document.getElementById("Block").value = block;
+    // document.getElementById("Team").value = team;
     // localStorage.remove("integrationEnvironment");
     // localStorage.remove("integrationMessage");
   </script>

@@ -22,8 +22,8 @@
 				"operator_name": "",
 				"operator_call_sign": "",
 				"neighborhood": "",
-				"block": "",
-				"team": "",
+				// "block": "",
+				// "team": "",
 				"tactical_name": "",
 				"tactical_call_sign": "",
 				"addon_name": "SCCoPIFO",
@@ -40,13 +40,13 @@
 			const opname = document.getElementById("OpName").value;
 			const opcall = document.getElementById("OpCall").value;
 			const neighborhood = document.getElementById("Neighborhood").value;
-			const block = document.getElementById("Block").value;
-			const team = document.getElementById("Team").value;
+			// const block = document.getElementById("Block").value;
+			// const team = document.getElementById("Team").value;
 			integrationEnvironment.operator_name = opname;
 			integrationEnvironment.operator_call_sign = opcall;
 			integrationEnvironment.neighborhood = neighborhood;
-			integrationEnvironment.block = block;
-			integrationEnvironment.team = team;
+			// integrationEnvironment.block = block;
+			// integrationEnvironment.team = team;
 			// Local storage only allows strings
 			localStorage.setItem("integrationEnvironment", JSON.stringify(integrationEnvironment));
 			localStorage.setItem("integrationMessage", JSON.stringify(integrationMessage));
@@ -160,20 +160,6 @@
 						</table>
 					</td>
 				</tr>
-				<tr>
-					<td class="label">Block:
-					</td>
-					<td class="input">
-						<input id="Block" type="text" name="2.block" tabindex="20" required>
-					</td>
-				</tr>
-				<tr>
-					<td class="label">Team:
-					</td>
-					<td class="input">
-						<input id="Team" type="text" name="3.team" tabindex="20" required>
-					</td>
-				</tr>
 
 			</tbody>
 		</table>
@@ -218,21 +204,21 @@
 	const nameInput = document.getElementById('OpName');
 	const callInput = document.getElementById('OpCall');
 	const neighborhoodInput = document.getElementById('Neighborhood');
-	const blockInput = document.getElementById('Block');
-	const teamInput = document.getElementById('Team');
+	// const blockInput = document.getElementById('Block');
+	// const teamInput = document.getElementById('Team');
 
 	const submitButton = document.getElementById('WindshieldButton');
 
 	function checkFormValidity() {
-		const allFieldsFilled = nameInput.value.trim() !== '' && callInput.value.trim() !== '' && neighborhoodInput.value.trim() !== '' && blockInput.value.trim() !== '' && teamInput.value.trim() !== '';
+		const allFieldsFilled = nameInput.value.trim() !== '' && callInput.value.trim() !== '' && neighborhoodInput.value.trim() !== '';
 		submitButton.disabled = !allFieldsFilled;
 	}
 
 	nameInput.addEventListener('keyup', checkFormValidity);
 	callInput.addEventListener('keyup', checkFormValidity);
 	neighborhoodInput.addEventListener('keyup', checkFormValidity);
-	blockInput.addEventListener('keyup', checkFormValidity);
-	teamInput.addEventListener('keyup', checkFormValidity);
+	// blockInput.addEventListener('keyup', checkFormValidity);
+	// teamInput.addEventListener('keyup', checkFormValidity);
 
 	// Initial check in case fields are pre-filled
 	checkFormValidity();
