@@ -22,8 +22,6 @@
 				"operator_name": "",
 				"operator_call_sign": "",
 				"neighborhood": "",
-				// "block": "",
-				// "team": "",
 				"tactical_name": "",
 				"tactical_call_sign": "",
 				"addon_name": "SCCoPIFO",
@@ -32,7 +30,8 @@
 				"emailURL": "",
 				"submitURL": "",
 				"pingURL": "",
-				"saveURL": ""
+				"saveURL": "",
+				"emailing": true
 			};
 		var integrationMessage = [];
 
@@ -40,13 +39,9 @@
 			const opname = document.getElementById("OpName").value;
 			const opcall = document.getElementById("OpCall").value;
 			const neighborhood = document.getElementById("Neighborhood").value;
-			// const block = document.getElementById("Block").value;
-			// const team = document.getElementById("Team").value;
 			integrationEnvironment.operator_name = opname;
 			integrationEnvironment.operator_call_sign = opcall;
 			integrationEnvironment.neighborhood = neighborhood;
-			// integrationEnvironment.block = block;
-			// integrationEnvironment.team = team;
 			// Local storage only allows strings
 			localStorage.setItem("integrationEnvironment", JSON.stringify(integrationEnvironment));
 			localStorage.setItem("integrationMessage", JSON.stringify(integrationMessage));
@@ -204,9 +199,6 @@
 	const nameInput = document.getElementById('OpName');
 	const callInput = document.getElementById('OpCall');
 	const neighborhoodInput = document.getElementById('Neighborhood');
-	// const blockInput = document.getElementById('Block');
-	// const teamInput = document.getElementById('Team');
-
 	const submitButton = document.getElementById('WindshieldButton');
 
 	function checkFormValidity() {
@@ -217,8 +209,6 @@
 	nameInput.addEventListener('keyup', checkFormValidity);
 	callInput.addEventListener('keyup', checkFormValidity);
 	neighborhoodInput.addEventListener('change', checkFormValidity);
-	// blockInput.addEventListener('keyup', checkFormValidity);
-	// teamInput.addEventListener('keyup', checkFormValidity);
 
 	// Initial check in case fields are pre-filled
 	checkFormValidity();
