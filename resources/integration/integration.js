@@ -181,7 +181,7 @@
 
     /** Send the given message via e-mail. */
     integration.email_message = function(body) {
-        var subject = environment.emailTo || "Damage Assessment"; // new_message_subject();
+        const subject = environment.subject || "Damage Assessment"; // new_message_subject();
         const to = environment.emailTo || "damage";
         hide_element(document.querySelector("#opdirect-submit"));
         hide_element(document.querySelector("#email-submit"));
