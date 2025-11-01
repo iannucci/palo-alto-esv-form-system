@@ -178,6 +178,19 @@
     //     formDataForm.action = environment.emailURL;
     //     formDataForm.submit();
     // };
+
+    /** Send the given message via e-mail. */
+    integration.email_message = function(body) {
+        var subject = environment.emailTo || "Damage Assessment"; // new_message_subject();
+        const to = environment.emailTo || "damage";
+        hide_element(document.querySelector("#opdirect-submit"));
+        hide_element(document.querySelector("#email-submit"));
+        hide_element(document.querySelector("#clear-form"));
+        document.location = "mailto:?to=" + encodeURIComponent(to)
+            + "&Content-Type=text/plain"
+            + "&Subject=" + encodeURIComponent(subject)
+            + "&body=" + encodeURIComponent(body);
+    }
     integration.get_old_message = getOldMessage;
     integration.late_startup = customizeForm;
 })();
