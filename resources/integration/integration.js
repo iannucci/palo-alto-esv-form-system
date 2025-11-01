@@ -173,11 +173,11 @@
         next();
     };
 
-    integration.email_message = function(body) {
-        var formDataForm = document.querySelector('#form-data-form')
-        formDataForm.action = environment.emailURL;
-        formDataForm.submit();
-    };
+    // integration.email_message = function(body) {
+    //     var formDataForm = document.querySelector('#form-data-form')
+    //     formDataForm.action = environment.emailURL;
+    //     formDataForm.submit();
+    // };
     integration.get_old_message = getOldMessage;
     integration.late_startup = customizeForm;
 })();
