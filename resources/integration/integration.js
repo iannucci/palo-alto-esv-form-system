@@ -189,7 +189,7 @@
         const to = environment.emailTo || "damage";
         hide_element(document.querySelector("#opdirect-submit"));
         hide_element(document.querySelector("#email-submit"));
-        // hide_element(document.querySelector("#clear-form"));
+        hide_element(document.querySelector("#clear-form"));
         hide_element(document.querySelector("#show-PDF-form"));
         document.location = "mailto:?to=" + encodeURIComponent(to)
             + "&Content-Type=text/plain"
