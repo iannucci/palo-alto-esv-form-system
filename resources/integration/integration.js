@@ -170,6 +170,10 @@
                 title.innerText = text;
             }
         }
+
+        hide_element(document.querySelector("#opdirect-submit"));
+        hide_element(document.querySelector("#show-PDF-form"));
+
         next();
     };
 
