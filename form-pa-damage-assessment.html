@@ -140,7 +140,7 @@
           <td class="label">Address: (do not abbreviate)
           </td>
           <td class="input">
-            <input type="text" name="4.location" tabindex="20" required="">
+            <input type="text" name="2.address" tabindex="20" required="">
           </td>
         </tr>
       </tbody>
@@ -157,10 +157,10 @@
               <tbody>
                 <tr>
                   <td title="CERT Response: Suppress only fires you can safely handle; secure the area">
-                    <input type="number" name="5.fires" value="" tabindex="20" style="width: 4em">Burning
+                    <input type="number" name="3a.fires" value="" tabindex="20" style="width: 4em">Burning
                   </td>
                   <td>
-                    <input type="number" name="5.fires" value="" tabindex="20" style="width: 4em">Out
+                    <input type="number" name="3b.fires" value="" tabindex="20" style="width: 4em">Out
                   </td>
                 </tr>
               </tbody>
@@ -176,18 +176,18 @@
                 <tr>
                   <td
                     title="Can you smell gas? CERT Response: Secure the area, shut off utilities if you can safely do so.">
-                    <input type="checkbox" name="6a.gasleak" tabindex="20">Gas Leak
+                    <input type="checkbox" name="4a.gasleak" tabindex="20">Gas Leak
                   </td>
                   <td title="Is the road blocked? CERT Response: Turn off water at shutoff, if possible">
-                    <input type="checkbox" name="6b.water" tabindex="20">Water
+                    <input type="checkbox" name="4b.water" tabindex="20">Water
                   </td>
                   <td
                     title="Downed power lines. Is the road blocked?  CERT Response: Home (turn off breakers); Utility (secure the area)">
-                    <input type="checkbox" name="6c.electrical" tabindex="20">Electrical
+                    <input type="checkbox" name="4c.electrical" tabindex="20">Electrical
                   </td>
                   <td
                     title="Strange smell / unusual smoke. Posted hazard symbol.  CERT Response: Secure the area (Stay upwind)">
-                    <input type="checkbox" name="6d.chemical" tabindex="20">Chemical
+                    <input type="checkbox" name="4d.chemical" tabindex="20">Chemical
                   </td>
                 </tr>
               </tbody>
@@ -204,15 +204,15 @@
                 <tr>
                   <td
                     title="Broken windows / superficial damage. Fallen / cracked plaster. Minor damage to contents.  CERT Response: Enter and rescue with caution">
-                    <input type="radio" name="7.structures" value="light" tabindex="20">Light
+                    <input type="radio" name="5a.structures" value="light" tabindex="20">Light
                   </td>
                   <td
                     title="Visible signs of damage but structure still attached to foundation. Decorative work damaged or fallen. Major damage to contents. CERT Response: Rescue victims immediately. Minimize number of rescuers inside.">
-                    <input type="radio" name="7.structures" value="moderate" tabindex="20">Moderate
+                    <input type="radio" name="5b.structures" value="moderate" tabindex="20">Moderate
                   </td>
                   <td
                     title="Partial or total collapse. Structure no longer attached to foundation. Tilting / obvious structural instability. Fire / gas leaks / other hazards.  Do not attempt rescue, secure the area.">
-                    <input type="radio" name="7.structures" value="heavy" tabindex="20">Heavy
+                    <input type="radio" name="5c.structures" value="heavy" tabindex="20">Heavy
                   </td>
                 </tr>
               </tbody>
@@ -228,19 +228,19 @@
               <tbody>
                 <tr>
                   <td title="PAN and CERT Categories: Equipment required to rescue.">
-                    <input type="number" name="8a.trapped" value="" tabindex="20" style="width: 4em">Trapped
+                    <input type="number" name="6a.trapped" value="" tabindex="20" style="width: 4em">Trapped
                   </td>
                   <td title="CERT Categories: Victim has serious injuries but does not qualify as Immediate">
-                    <input type="number" name="8b.delayed" value="" tabindex="20"
+                    <input type="number" name="6b.delayed" value="" tabindex="20"
                       style="width: 4em; background-color: rgb(249, 249, 195)"> Delayed
                   </td>
                   <td
                     title="Life threatening injuries. Shock, severe blood loss. Breathing problems (describe injuries in Comments section). CERT Categories: Victim meets ANY of the following: Respiration – breathing faster than 30 breaths per minute. Pulse – severe bleeding or blanch test (capillary refill) slower than 2 seconds. Mental status – cannot respond to simple commands">
-                    <input type="number" name="8c.immediate" value="" tabindex="20"
+                    <input type="number" name="6c.immediate" value="" tabindex="20"
                       style="width: 4em; background-color: rgb(248, 128, 128)"> Immediate
                   </td>
                   <td title="PAN Categories: If obvious. CERT Categories: no respiration">
-                    <input type="number" name="8d.dead" value="" tabindex="20"
+                    <input type="number" name="6d.dead" value="" tabindex="20"
                       style="width: 4em; background-color: rgb(173, 172, 172)"> Dead
                   </td>
                 </tr>
